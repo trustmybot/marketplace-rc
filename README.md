@@ -19,7 +19,7 @@ Pick a scope. TMB keeps its trajectory DB and hooks per project, so install it *
 | `local` | `.claude/settings.local.json` (git-ignored) | Your own choice of channel; teammates may be on another one. |
 | `project` | `.claude/settings.json` (committed) | The whole team pins the same channel. |
 
-Run from the project root. The slash-command form (`/plugin install tmb@trustmybot-rc`) prompts for the scope instead of taking `--scope`.
+Run from the project root.
 
 ```bash
 claude plugin marketplace add trustmybot/marketplace-rc --scope local
@@ -27,6 +27,8 @@ claude plugin install tmb@trustmybot-rc --scope local
 ```
 
 Replace both `--scope local` with `--scope project` for a team install.
+
+Then fully quit and relaunch Claude Code, and run `/tmb:onboard` in the project.
 
 ### Switching from another channel
 
@@ -36,7 +38,7 @@ Disable the `tmb` you have before installing this one, at the scope it was insta
 claude plugin disable tmb@trustmybot --scope local
 ```
 
-Then restart Claude Code (`/reload-plugins` does not rebind the MCP server or the hooks).
+Then install this channel with the commands above, and fully quit and relaunch Claude Code once.
 
 ## Upgrade to the newest rc
 
@@ -47,16 +49,18 @@ claude plugin marketplace update trustmybot-rc
 claude plugin update tmb@trustmybot-rc --scope local
 ```
 
-Then restart Claude Code.
+Then fully quit and relaunch Claude Code.
 
 ## Back to the stable channel
+
+Run each at the scope it was installed in.
 
 ```bash
 claude plugin uninstall tmb@trustmybot-rc --scope local
 claude plugin enable tmb@trustmybot --scope local
 ```
 
-Restart Claude Code afterwards.
+Fully quit and relaunch Claude Code afterwards.
 
 ## Source
 
